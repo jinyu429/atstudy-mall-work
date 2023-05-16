@@ -52,6 +52,15 @@ public class TestApplication {
     private UserMapper userMapper;
     @Resource
     private OrderMapper orderMapper;
+    @Resource
+    private CartMapper cartMapper;
+    @Test
+    public void testCartMapper(){
+        List<Cart> carts = cartMapper.listBySearchBo(new UserSearchBo(), new PageBo());
+        for (Cart cart : carts) {
+            System.out.println(cart);
+        }
+    }
     @Test
     public void testOrderMapper(){
 //        List<Order> orders = orderMapper.listBySearchBo(new UserSearchBo(), new PageBo());
@@ -76,9 +85,14 @@ public class TestApplication {
 //        for (User user : users) {
 //            System.out.println(user);
 //        }
-        List<Order> orders = userService.listOrderBySearchBo(new UserSearchBo(), new PageBo());
-        for (Order order : orders) {
-            System.out.println(order);
+//        List<Order> orders = userService.listOrderBySearchBo(new UserSearchBo(), new PageBo());
+//        for (Order order : orders) {
+//            System.out.println(order);
+//        }
+
+        List<Cart> carts = userService.listCartBySearchBo(new UserSearchBo(), new PageBo());
+        for (Cart cart : carts) {
+            System.out.println(cart);
         }
     }
 
